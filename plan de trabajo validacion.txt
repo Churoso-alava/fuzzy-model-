@@ -1,0 +1,67 @@
+Plan de Auditoría y Validación del Modelo de Fatiga
+Fase 1: Definición de Variables y Funciones de Membresía
+El primer paso es revisar cómo "traduces" el mundo real a términos difusos.
+
+Qué haremos: Analizar los rangos de las variables (Biomecánica, Wellness, Entrenamiento) y sus etiquetas lingüísticas (ej. Bajo, Medio, Alto).
+Validación: ¿Son las funciones de membresía (triangulares, trapezoidales, gaussianas) adecuadas para la naturaleza de los datos? ¿Hay solapamiento suficiente entre conjuntos para evitar saltos bruscos en el resultado?
+Fase 2: Auditoría de la Base de Reglas (Lógica de Inferencia)
+Aquí es donde reside la "inteligencia" del modelo.
+
+Qué haremos: Revisar la matriz de reglas "SI-ENTONCES" (If-Then).
+Validación:
+Consistencia: Que no haya reglas contradictorias.
+Completitud: Que todas las combinaciones posibles de entrada tengan una salida definida.
+Lógica Bio-fisiológica: ¿Es lógico que una biomecánica deficiente con un wellness alto resulte en fatiga "X"? Contrastaremos esto con principios de ciencias del deporte.
+Fase 3: Método de Inferencia y Desfuzzificación
+Revisaremos el proceso matemático que genera el nivel de fatiga final.
+
+Qué haremos: Validar si usas el método de Mamdani, Sugeno u otro, y cómo se realiza la agregación de resultados.
+Validación: Evaluar el método de desfuzzificación (Centroide, Bisectriz, etc.). Algunos métodos son más sensibles que otros a valores extremos; determinaremos cuál es el más estable para tu aplicación.
+Fase 4: Análisis de Sensibilidad y Casos de Borde
+Pondremos a prueba el modelo con escenarios teóricos.
+
+Qué haremos: Introducir valores límite (ej. entrenamiento máximo con wellness mínimo) y observar si la salida es coherente.
+Validación: Comprobar si pequeñas variaciones en la entrada producen cambios lógicos o si el modelo es demasiado rígido/volátil.
+¿Cómo podemos empezar?
+Para que yo pueda realizar esta auditoría, necesitaría que me compartas (en la medida de lo posible) la siguiente información:
+
+Definición de las Entradas: ¿Qué métricas específicas componen "Biomecánica" (ej. variabilidad de la marcha, potencia), "Wellness" (ej. sueño, estrés) y "Entrenamiento" (ej. carga aguda/crónica)?
+Rangos y Conjuntos: ¿Cuáles son los valores mínimos y máximos de cada variable y qué nombres les has dado a sus niveles?
+Ejemplos de Reglas: Comparte algunas de las reglas principales que ya tengas programadas.
+Objetivo de Salida: ¿El nivel de fatiga es un porcentaje (0-100%), una escala (1-5) o categorías (Recuperado, Fatiga Leve, Sobreentrenamiento)?
+
+1. Preparación de la "Fuente de Verdad" (Grounding)
+Para que yo no alucine, necesito que mis respuestas estén "ancladas" a tus documentos. El flujo de información debe ser:
+
+Documentación Técnica: Pega aquí las definiciones de tus variables, los rangos de los sensores y, lo más importante, la Matriz de Reglas.
+Formato de Intercambio: Lo ideal es que compartas la lógica en formatos no ambiguos:
+Código: Si tienes scripts en Python (scikit-fuzzy), compártelos. El código es lenguaje matemático puro y no deja espacio a la interpretación errónea.
+Tablas: Si usas Excel, exporta a CSV o pega las tablas de reglas en formato Markdown.
+2. Flujo de Trabajo Modular (Paso a Paso)
+No auditaremos todo el sistema de golpe. Dividiremos el trabajo en "Sprints" de validación para asegurar que cada pieza es sólida antes de pasar a la siguiente:
+
+Paso A: Auditoría de la "Fuzzificación"
+Tú entregas: Definición de una variable (ej. Biomecánica: Ángulo de entrada, Velocidad de rotación).
+Yo hago: Verifico si las funciones de membresía (triangulares, gaussianas) cubren todo el universo de discurso sin dejar "puntos ciegos" matemáticos.
+Resultado: Un reporte de consistencia de entradas.
+Paso B: Validación de la Inferencia (Motor de Reglas)
+Tú entregas: El set de reglas IF-THEN.
+Yo hago: Ejecuto un análisis de redundancia y contradicción. Buscaré si hay dos reglas que, ante la misma entrada, den salidas opuestas, lo cual rompería el modelo estadístico.
+Resultado: Matriz de calor de reglas y alertas de conflictos.
+Paso C: Verificación mediante Simulación de Código
+Para evitar alucinaciones en los cálculos, yo no haré la matemática "mentalmente".
+
+Mi método: Escribiré un script de Python que modele tu lógica exacta.
+Tu acción: Tú ejecutarás ese script en tu CLI (terminal).
+Validación: Compararemos si el resultado de mi script coincide con el resultado de tu aplicación. Si hay discrepancia, encontraremos el error en la fórmula.
+3. Herramientas de Control de Calidad
+Durante nuestra interacción, utilizaré estas funciones para mantener la precisión:
+
+Solicitud de Aclaración (ask_user_question): Si un dato es ambiguo (ej. no está claro si una variable es lineal o logarítmica), usaré esta herramienta para que elijas la opción correcta antes de que yo proceda con el análisis.
+Visualización de Datos (generate_visualization): Crearé diagramas de las funciones de membresía y superficies de control para que veas visualmente cómo se comporta la fatiga. Si la curva "se ve rara", detectaremos el error lógico de inmediato.
+Búsqueda Científica (web_search): Usaré esto para contrastar tus rangos de fatiga con estudios publicados sobre clavadistas juveniles (cargas de entrenamiento, niveles de lactato, etc.) y asegurar que tu modelo tiene validez externa.
+4. ¿Cómo empezamos ahora mismo?
+Para establecer este entorno de "alucinación cero", por favor elige una de estas dos opciones para iniciar:
+
+Opción 1 (Lógica): Pega aquí la descripción de tus 3 variables de entrada y sus rangos (qué es "bajo", "medio" y "alto" para un clavadista).
+Opción 2 (Código): Si ya tienes un script o una lista de reglas, pégala para que empiece la auditoría de consistencia.
